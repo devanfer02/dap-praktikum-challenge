@@ -1,6 +1,6 @@
 body {
     background-image: url('../resources/imgs/Home.jpg');
-    background-size: cover;
+    background-size:cover;
     font-family: 'Inter', sans-serif;
 }
 
@@ -21,4 +21,10 @@ body {
 .btn-modified:hover {
     color: #10B981;
     background-color:#c6ebdf;
+}
+
+@media screen and (max-width: 768px) {
+    body {
+        background-image: url('../resources/imgs/mobile/Home.jpg');
+    }
 }

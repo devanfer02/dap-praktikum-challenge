@@ -21,10 +21,8 @@ body {
     color: red;
 }
 
-/* #password:invalid + #confirm:invalid + #password-message {
-    display: block;
+@media screen and (max-width: 768px) {
+    body {
+        background-image: url('../resources/imgs/mobile/Signup.jpg');
+    }
 }
-
-#password:invalid, #confirm:invalid {
-    border: 1px solid red;
-} */

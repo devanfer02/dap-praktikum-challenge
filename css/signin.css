@@ -8,3 +8,9 @@ body {
     display: none;
     color: red;
 }
+
+@media screen and (max-width: 768px) {
+    body {
+        background-image: url('../resources/imgs/mobile/Login.jpg');
+    }
+}
