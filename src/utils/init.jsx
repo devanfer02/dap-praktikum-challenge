@@ -49,7 +49,6 @@ function initLoginBehaviour() {
 }
 
 function initUsersData() {
-  localStorage.clear()
   if(localStorage.getItem('users') == null) {
     localStorage.setItem('users', '[]');
   }
