@@ -1,17 +1,50 @@
-function login() {
-  const usernameInput = document.getElementById('username').textContent
-  const emailInput = document.getElementById('email').textContent
+function dataExist(list, email, username) {
+  return list.some(user => user.email === email) && list.some(user => user.username === username)
+}
+
+function register() {
+  const usernameInput = document.getElementById('username').value.trim()
+  const emailInput = document.getElementById('email').value.trim()
   const passwordTag = document.getElementById('password')
   const confirmTag = document.getElementById('confirm')
   const messagePassTag = document.getElementById('password-message')
+  const passwordInput = passwordTag.value 
+  const confirmInput = confirmTag.value
   
-  if (passwordTag.value !== confirmTag.value) {
+  if (passwordInput !== confirmInput) {
     passwordTag.style.border = '1px solid red'
     confirmTag.style.border = '1px solid red'
     messagePassTag.style.display = 'block'
     messagePassTag.style.color = 'red'
     return
   }
+
+  if (usernameInput.length === 0 || emailInput === 0) {
+    return 
+  }
+
+  const users = JSON.parse(localStorage.getItem('users'))
+
+  if (dataExist(users, emailInput, usernameInput)) {
+    messagePassTag.style.display = 'block'
+    messagePassTag.style.color = 'red'
+    messagePassTag.value = 'Username Atau Email Sudah Digunakan'
+    return 
+  }
+
+  const user = {
+    username: usernameInput,
+    email: emailInput,
+    password: passwordInput
+  }
+
+  users.push(user)
+
+  localStorage.setItem('users', JSON.stringify(users))
+
+  alert("Pendaftaran Sukses! Kamu bisa mencoba untuk melakukan login")
+
+  window.location.href = 'signin.html'
 }
 
 function domRemove(tag, className) {
@@ -28,7 +61,7 @@ function Signup() {
       <div className="row justify-content-center">
         <div className="col-md-6 card card-form">
           <div id="logo">
-            <img src="resources/icons/traveleen1.png" alt="logo" className="text-center" style={{ marginRight: '6px' }}/>
+            <img src="resources/icons/traveleen_logo.svg" alt="logo" className="text-center" style={{ marginRight: '6px' }}/>
             <h4 className="mt-3 text-center"><b>TRAVELEEN</b></h4>
           </div>
           <div className="entry">
@@ -78,10 +111,10 @@ function Signup() {
             <div className="mt-4">
               <div className="d-flex align-items-center mt-2 form-remember">
               </div>
-              <button type="button" className="btn w-100 btn-modified" onClick={login}>Click</button>
-              <div id="regis-href">
-                <p className="mt-3 text-center info-no-acc">Sudah Punya Akun? <a href="signin.html" id="register-href">Masuk</a></p>
-              </div>
+              <Button textContent={'Masuk'} onClick={register} classList={'btn w-100 btn-modified'} />
+                <div id="regis-href">
+                  <p className="mt-3 text-center info-no-acc">Sudah Punya Akun? <a href="signin.html" id="register-href">Masuk</a></p>
+                </div>
             </div>
           </form>
         </div>

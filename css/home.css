@@ -1,0 +1,24 @@
+body {
+    background-image: url('../resources/imgs/Home.jpg');
+    background-size: cover;
+    font-family: 'Inter', sans-serif;
+}
+
+.logo-title {
+    color: #10B981;
+}
+
+.hero-title {
+    color: #10B981;
+}
+
+.btn-modified {
+    background-color: #10B981;
+    color: white;
+    height: 3em;
+}
+
+.btn-modified:hover {
+    color: #10B981;
+    background-color:#c6ebdf;
+}

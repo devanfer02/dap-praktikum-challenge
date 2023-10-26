@@ -1,6 +1,7 @@
 body {
-    background-image: url('../resources/imgs/Signup.png');
+    background-image: url('../resources/imgs/Signup.jpg');
     background-size: cover;
+    font-family: 'Inter', sans-serif;
 }
 
 .password-info {

@@ -1,9 +1,20 @@
-function login(event) {
-  event.preventDefault()
-  const credential = document.getElementById('credential').textContent.trim();
-  const password = document.getElementById('password').textContent.trim();
+function login() {
+  const messsageTag = document.getElementById('message-login')
+  const credential = document.getElementById('credential').value.trim();
+  const password = document.getElementById('password').value.trim();
 
-  
+  const users = JSON.parse(localStorage.getItem('users'))
+
+  const result = users.find(user => (user.username === credential || user.email === credential) && user.password === password)
+
+  if (!result) {
+    messsageTag.style.display = 'block'
+    return 
+  }
+
+  localStorage.setItem('session', 'true')
+
+  alert('Login Berhasil!')
 }
 
 function Signin() {
@@ -12,7 +23,7 @@ function Signin() {
       <div className="row justify-content-center">
         <div className="col-md-6 card card-form">
           <div id="logo">
-            <img src="resources/icons/traveleen1.png" alt="logo" className="text-center" style={{ marginRight: '6px' }}/>
+            <img src="resources/icons/traveleen_logo.svg" alt="logo" className="text-center" style={{ marginRight: '6px' }}/>
             <h4 className="mt-3 text-center"><b>TRAVELEEN</b></h4>
           </div>
           <div className="entry">
@@ -35,6 +46,9 @@ function Signin() {
               iconClass={'fa fa-eye-slash'}
               iconId={'toggle-password'}
             />
+            <p id="message-login">
+              Invalid Credential or Password
+            </p>
             <div className="mt-4">
               <div className="d-flex align-items-center mt-2 form-remember">
                 <input className="form-check-input rounded-checkbox" type="checkbox" value="" id="flex-check" />
@@ -43,10 +57,10 @@ function Signin() {
                 </label>
                 <p id="forgot">Lupa Kata Sandi</p>
               </div>
-              <button type="submit" className="btn w-100 btn-modified">Masuk</button>
-              <div id="regis-href">
-                <p className="mt-3 text-center info-no-acc">Tidak Punya Akun? <a href="signup.html" id="register-href">Daftar</a></p>
-              </div>
+              <Button textContent={'Masuk'} onClick={login} classList={'btn w-100 btn-modified'}/>
+                <div id="regis-href">
+                  <p className="mt-3 text-center info-no-acc">Tidak Punya Akun? <a href="signup.html" id="register-href">Daftar</a></p>
+                </div>
             </div>
           </form>
         </div>
@@ -62,3 +76,4 @@ ReactDOM.render(
 
 initTogglePassword()
 initUsersData()
+initLoginBehaviour()

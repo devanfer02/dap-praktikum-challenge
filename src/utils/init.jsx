@@ -31,7 +31,25 @@ function initPasswordBehaviour() {
   })
 }
 
+function initLoginBehaviour() {
+  const inputTag = document.getElementById('credential')
+  const passwordTag = document.getElementById('password')
+  const messagePassTag = document.getElementById('message-login')
+  const computed = getComputedStyle(messagePassTag)
+
+  checkMessage(computed, inputTag, passwordTag, messagePassTag)
+
+  inputTag.addEventListener('click', () => {
+    checkMessage(computed, inputTag, passwordTag, messagePassTag)
+  })
+
+  passwordTag.addEventListener('click', () => {
+    checkMessage(computed, inputTag, passwordTag, messagePassTag)
+  })
+}
+
 function initUsersData() {
+  localStorage.clear()
   if(localStorage.getItem('users') == null) {
     localStorage.setItem('users', '[]');
   }
@@ -55,5 +73,8 @@ function checkMessage(computed, passwordTag, confirmTag, messagePassTag) {
     confirmTag.style.border = '1px solid #525151'
     messagePassTag.style.display = 'none'
     messagePassTag.style.color = 'red'
+    messagePassTag.value = 'Kata Sandi Dengan Konfirmasi Sandi Tidak Sama'
   }
 }
+
+initUsersData()

@@ -1,4 +1,10 @@
 body {
-    background-image: url('../resources/imgs/Login.png');
+    background-image: url('../resources/imgs/Login.jpg');
     background-size: cover;
+    font-family: 'Inter', sans-serif;
+}
+
+#message-login {
+    display: none;
+    color: red;
 }
