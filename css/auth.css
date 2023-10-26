@@ -1,0 +1,112 @@
+body {
+    
+    font-family: 'Inter', sans-serif;
+}
+
+form i {
+    margin-left: -30px;
+    cursor: pointer;
+}
+
+.form-control-self {
+    padding: 12px;
+    border: 1px solid #525151;
+    border-radius: 1em;
+    font-size: 16px;
+    width: 100%;
+    outline: none;
+}
+
+.form-control-self:focus {
+    border: 1px solid #10B981;
+}
+
+.form-group {
+    margin-bottom: 1.5em;
+}
+
+#masuk {
+    font-weight: 700;
+}
+
+#register-href {
+    text-decoration: none;
+    color: #10B981;
+}
+
+#group-name-1 {
+    font-weight: 700;
+    color: #797575;
+    font-size: 1.1em;
+}
+
+.btn-modified {
+    background-color: #10B981;
+    color: white;
+    height: 3em;
+}
+
+.btn-modified:hover {
+    color: #10B981;
+    background-color:#c6ebdf;
+}
+
+.card-form {
+    padding-left: 1.5em;
+    padding-right: 1.5em;
+}
+
+.info-no-acc {
+    font-weight: 500;
+    color: #797575;
+}
+
+#logo img, #logo h4 {
+    display: inline-block;
+    vertical-align: middle;
+}
+
+#logo {
+    align-items: center;
+    text-align: center;
+    margin-top: 10px;
+}
+
+#forgot {
+    margin-left: auto;
+    padding-top: 15px;
+}
+
+.check-label {
+    padding-bottom: 2px;
+    margin-left: 5px;
+}
+
+.rounded-checkbox {    
+    width: 1.2em;
+    height: 1.2em;
+    vertical-align: middle;
+    border: 0.5px solid rgb(73, 71, 71);
+    border-radius: 100%;
+    cursor: pointer;
+    margin-bottom: 4px;
+}
+
+.rounded-checkbox:checked {
+    background-color: #10B981;
+    border: 0px ;
+}
+
+#regis-href {
+    margin-top: 20px;
+    margin-bottom: 25px;
+}
+
+.entry {
+    margin-top: 20px;
+}
+
+
+@media screen and (max-width: 768px) {
+
+}
