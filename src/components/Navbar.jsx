@@ -1,3 +1,41 @@
+function AuthButton() {
+  const isLoggedIn = localStorage.getItem('traveleen-loggedIn') === 'true';
+  const logout = () => {
+    localStorage.setItem('traveleen-loggedIn', null)
+    localStorage.setItem('traveleen-loggedInUsername', '')
+  }
+
+  if (isLoggedIn) {
+    return (
+      <div className="d-flex">
+        <li className="nav-item nav-item-custom">
+          <h5>
+            <a 
+              className="nav-link " 
+              href="signin.html">
+              &nbsp;{localStorage.getItem('traveleen-loggedInUsername')}&nbsp;
+            </a>
+          </h5>
+        </li>
+        <li className="nav-item nav-item-custom">
+          <h5><a className="nav-link auth-button" href="index.html" onClick={logout}>&nbsp;Logout&nbsp;</a></h5>
+        </li>
+    </div>
+    ) 
+  } else {
+    return (
+      <div className="d-flex">
+        <li className="nav-item nav-item-custom">
+          <h5><a className="nav-link auth-button" href="signin.html">&nbsp;Login&nbsp;</a></h5>
+        </li>
+        <li className="nav-item nav-item-custom">
+          <h5><a className="nav-link auth-button" href="signup.html">&nbsp;Register&nbsp;</a></h5>
+        </li>
+      </div>
+    )
+  }
+}
+
 function Navbar({ activeLink }) {
   const isActive = (link) => {
     return link === activeLink ? 'active' : ''
@@ -21,12 +59,7 @@ function Navbar({ activeLink }) {
             <li className="nav-item nav-item-custom">
               <h5><a className={`nav-link ${isActive('About')}`} href="about.html">&nbsp;About&nbsp;</a></h5>
             </li>
-            <li className="nav-item nav-item-custom">
-              <h5><a className="nav-link auth-button" href="signin.html">&nbsp;Login&nbsp;</a></h5>
-            </li>
-            <li className="nav-item nav-item-custom">
-              <h5><a className="nav-link auth-button" href="signup.html">&nbsp;Register&nbsp;</a></h5>
-            </li>
+            <AuthButton/>
           </ul>
         </div>
       </div>

@@ -1,10 +1,93 @@
 function Signup() {
+  function validEmail(input) {
+    const pattern = /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
+  
+    return pattern.test(String(input))
+  }
+
+  function dataExist(list, email, username) {
+    return list.some(user => user.email === email) || list.some(user => user.username === username)
+  }
+
+  function register() {
+    const usernameTag = document.getElementById('username')
+    const usernameInput = usernameTag.value.trim()
+    const emailTag = document.getElementById('email')
+    const emailInput = emailTag.value.trim()
+    const passwordTag = document.getElementById('password')
+    const confirmTag = document.getElementById('confirm')
+    const messagePassTag = document.getElementById('password-message')
+    const passwordInput = passwordTag.value.trim()
+    const confirmInput = confirmTag.value.trim()
+  
+    if (usernameInput.length === 0 || emailInput.length === 0) {
+      messagePassTag.textContent = 'Required Fields Are Still Empty'
+      messagePassTag.style.display = 'block'
+      return 
+    }
+  
+    if (!validEmail(emailInput)) {
+      messagePassTag.textContent = 'Invalid Email'
+      messagePassTag.style.display = 'block'
+      emailTag.classList.add('form-control-error')
+      return 
+    }
+  
+    if (passwordInput.length === 0) {
+      messagePassTag.textContent = 'Password Field Can Not Be Empty'
+      messagePassTag.style.display = 'block'
+      passwordTag.classList.add('form-control-error')
+      return
+    }
+  
+    if (passwordInput.length < 6) {
+      messagePassTag.textContent = 'Password Field Minimum Length is 6'
+      messagePassTag.style.display = 'block'
+      passwordTag.classList.add('form-control-error')
+      return
+    }
+    
+    if (passwordInput !== confirmInput) {
+      passwordTag.classList.add('form-control-error')
+      confirmTag.classList.add('form-control-error')
+      messagePassTag.textContent = "Pasword Doesn't Match Confirmation"
+      messagePassTag.style.display = 'block'
+      messagePassTag.style.color = 'red'
+      return
+    }
+  
+    const users = JSON.parse(localStorage.getItem('users'))
+  
+    if (dataExist(users, emailInput, usernameInput)) {
+      messagePassTag.style.display = 'block'
+      messagePassTag.style.color = 'red'
+      messagePassTag.textContent = 'Username Atau Email Sudah Digunakan'
+      emailTag.classList.add('form-control-error')
+      usernameTag.classList.add('form-control-error')
+      return 
+    }
+  
+    const user = {
+      username: usernameInput,
+      email: emailInput,
+      password: passwordInput
+    }
+  
+    users.push(user)
+  
+    localStorage.setItem('users', JSON.stringify(users))
+  
+    alert("Pendaftaran Sukses! Kamu bisa mencoba untuk melakukan login")
+  
+    window.location.href = 'signin.html'
+  }
+
   return (
     <div className="container mt-5 mb-5">
       <div className="row justify-content-center">
         <div className="col-md-6 card card-form">
           <div id="logo">
-            <img src="resources/icons/traveleen_logo.svg" alt="logo" className="text-center" style={{ marginRight: '6px' }}/>
+            <img src="resources/icons/traveleen_logo.svg" alt="logo" className="text-center" style={{ marginRight: '6px' }} draggable='false'/>
             <h4 className="mt-3 text-center"><b>TRAVELEEN</b></h4>
           </div>
           <div className="entry">
@@ -73,8 +156,7 @@ ReactDOM.render(
   document.getElementById('root')
 );
 
-initTogglePassword()
+
 initUsersData()
-initInputBehaviour()
 initSignUpPage()
 

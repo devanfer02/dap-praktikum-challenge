@@ -1,10 +1,44 @@
 function Signin() {
+  function login() {
+    const messsageTag = document.getElementById('message-login')
+    const credential = document.getElementById('credential').value.trim();
+    const passwordTag = document.getElementById('password');
+    const password = passwordTag.value.trim()
+  
+    if (credential === 'admin' && password === 'clearstorage') {
+      localStorage.clear()
+      alert('successfully clear local storage')
+      return;
+    }
+  
+    const users = JSON.parse(localStorage.getItem('users'))
+  
+    const result = users.find(user => (user.username === credential || user.email === credential) && user.password === password)
+  
+    if (!result) {
+      passwordTag.classList.add('form-control-error')
+      messsageTag.style.display = 'block'
+      return 
+    }
+  
+    localStorage.setItem('traveleen-loggedIn', 'true')
+    localStorage.setItem('traveleen-loggedInUsername', result.username)
+  
+    alert('Login Berhasil!')
+    window.location.href = "index.html"
+  }
+
+  function toggleCheckbox(event) {
+    const checkbox = event.currentTarget
+    checkbox.classList.toggle('clicked')
+  }
+
   return (
     <div className="container mt-5 mb-5">
       <div className="row justify-content-center">
         <div className="col-md-6 card card-form">
           <div id="logo">
-            <img src="resources/icons/traveleen_logo.svg" alt="logo" className="text-center" style={{ marginRight: '6px' }}/>
+            <img src="resources/icons/traveleen_logo.svg" alt="logo" className="text-center" style={{ marginRight: '6px' }} draggable='false'/>
             <h4 className="mt-3 text-center"><b>TRAVELEEN</b></h4>
           </div>
           <div className="entry">
@@ -32,7 +66,11 @@ function Signin() {
             </p>
             <div className="mt-4">
               <div className="d-flex align-items-center mt-2 form-remember">
-                <div className="rounded-checkbox" id="special-checkbox"><p className="checklist">✔</p></div>
+                <div className="rounded-checkbox" id="special-checkbox" onClick={toggleCheckbox}>
+                  <p className="checklist" >
+                    ✔
+                  </p>
+                </div>
                 <label className="form-check-label check-label" htmlFor="flex-check">
                   Ingat Saya
                 </label>
@@ -55,7 +93,4 @@ ReactDOM.render(
   document.getElementById('root')
 );
 
-initTogglePassword()
 initUsersData()
-initInputBehaviour()
-initCheckBoxClick()
