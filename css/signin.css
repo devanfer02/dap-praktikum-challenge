@@ -7,6 +7,34 @@ body {
     font-family: 'Inter', sans-serif;
 }
 
+.rounded-checkbox {    
+    align-items: center;
+    text-align: center;
+    justify-content: center;
+    display: flex;
+    width: 1.2em;
+    height: 1.2em;
+    border: 1px solid rgb(73, 71, 71);
+    cursor: pointer;
+    border-radius: 6px;
+    color: white;
+}
+
+.rounded-checkbox.clicked {
+    border: 0;
+    background-color: #10B981;
+}
+
+.checklist {
+    padding-top: 14px;
+    user-select: none;
+}
+
+.rounded-checkbox:checked {
+    background-color: #10B981;
+    border: 0;
+}
+
 #message-login {
     display: none;
     color: red;

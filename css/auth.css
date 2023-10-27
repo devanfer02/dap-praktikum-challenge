@@ -91,21 +91,6 @@ form i {
     margin-left: 5px;
 }
 
-.rounded-checkbox {    
-    width: 1.2em;
-    height: 1.2em;
-    vertical-align: middle;
-    border: 0.5px solid rgb(73, 71, 71);
-    border-radius: 100%;
-    cursor: pointer;
-    margin-bottom: 4px;
-}
-
-.rounded-checkbox:checked {
-    background-color: #10B981;
-    border: 0px ;
-}
-
 #regis-href {
     margin-top: 20px;
     margin-bottom: 25px;

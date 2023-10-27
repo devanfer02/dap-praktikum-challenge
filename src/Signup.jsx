@@ -26,9 +26,10 @@ function Signup() {
             />          
             <Input 
               label={"Kata Sandi"} 
-              placeholder={"12345"} 
+              placeholder={"Enter your password"} 
               id={'password'} 
               type={'password'}
+              minLength={'6'}
               icon={true}
               iconSrc={'resources/icons/icon_eye_closed.svg'}
               iconClass={'icon'}
@@ -41,6 +42,7 @@ function Signup() {
               placeholder={"Enter your confirmation"} 
               id={'confirm'} 
               type={'password'}
+              minLength={'6'}
               icon={true}
               iconSrc={'resources/icons/icon_eye_closed.svg'}
               iconClass={'icon'}

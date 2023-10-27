@@ -1,4 +1,4 @@
-function Input({label, placeholder, id, type, icon, iconSrc, iconClass, iconId}) {
+function Input({label, placeholder, id, type, minLength, icon, iconSrc, iconClass, iconId}) {
   return (
     <div className="form-group">
       <label htmlFor={id}>{label}</label>
@@ -7,8 +7,9 @@ function Input({label, placeholder, id, type, icon, iconSrc, iconClass, iconId})
         className={`form-control-self mt-2 ${type === 'password' ? 'pass-in' : ''}`}
         id={id}
         placeholder={placeholder} 
-        required
+        required={true}
         autoComplete="off"
+        minLength={minLength ? parseInt(minLength) : 1}
       />
       {icon && <img src={iconSrc} alt="icon" className={iconClass} id={iconId}/>}
     </div>

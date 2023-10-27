@@ -32,11 +32,11 @@ function Signin() {
             </p>
             <div className="mt-4">
               <div className="d-flex align-items-center mt-2 form-remember">
-                <input className="form-check-input rounded-checkbox" type="checkbox" value="" id="flex-check" />
+                <div className="rounded-checkbox" id="special-checkbox"><p className="checklist">✔</p></div>
                 <label className="form-check-label check-label" htmlFor="flex-check">
                   Ingat Saya
                 </label>
-                <p id="forgot">Lupa Kata Sandi</p>
+                <p id="forgot"><a href="" style={{ textDecoration: 'none', color: '#171717' }}>Lupa Kata Sandi</a></p>
               </div>
               <Button textContent={'Masuk'} onClick={login} classList={'btn w-100 btn-modified'}/>
                 <div id="regis-href">
@@ -58,3 +58,4 @@ ReactDOM.render(
 initTogglePassword()
 initUsersData()
 initInputBehaviour()
+initCheckBoxClick()
