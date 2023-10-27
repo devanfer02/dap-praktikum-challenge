@@ -16,6 +16,10 @@ form i {
     border: 1px solid #10B981;
 }
 
+.form-control-error {
+    border: 1px solid red;
+}
+
 .form-group {
     margin-bottom: 1.5em;
 }

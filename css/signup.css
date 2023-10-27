@@ -1,6 +1,8 @@
 body {
     background-image: url('../resources/imgs/Signup.jpg');
     background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center center;
     font-family: 'Inter', sans-serif;
 }
 
@@ -22,7 +24,11 @@ body {
 }
 
 @media screen and (max-width: 768px) {
-    body {
-        background-image: url('../resources/imgs/mobile/Signup.jpg');
+    .password-info {
+        font-size: 14px;
+    }
+
+    .daftar-info {
+        font-size: 16px;
     }
 }

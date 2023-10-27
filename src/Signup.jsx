@@ -1,5 +1,5 @@
 function dataExist(list, email, username) {
-  return list.some(user => user.email === email) && list.some(user => user.username === username)
+  return list.some(user => user.email === email) || list.some(user => user.username === username)
 }
 
 function register() {
@@ -12,8 +12,8 @@ function register() {
   const confirmInput = confirmTag.value
   
   if (passwordInput !== confirmInput) {
-    passwordTag.style.border = '1px solid red'
-    confirmTag.style.border = '1px solid red'
+    passwordTag.classList.add('form-control-error')
+    confirmTag.classList.add('form-control-error')
     messagePassTag.style.display = 'block'
     messagePassTag.style.color = 'red'
     return

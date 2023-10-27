@@ -67,9 +67,9 @@ function toggle(inputTag, buttonTag) {
 };
 
 function checkMessage(computed, passwordTag, confirmTag, messagePassTag) {
-  if (computed.getPropertyValue('display') === 'block') {
-    passwordTag.style.border = '1px solid #525151'
-    confirmTag.style.border = '1px solid #525151'
+  if (computed.getPropertyValue('display') === 'block') {        
+    passwordTag.classList.remove('form-control-error')
+    confirmTag.classList.remove('form-control-error')
     messagePassTag.style.display = 'none'
     messagePassTag.style.color = 'red'
     messagePassTag.value = 'Kata Sandi Dengan Konfirmasi Sandi Tidak Sama'

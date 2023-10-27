@@ -1,16 +1,12 @@
 body {
     background-image: url('../resources/imgs/Login.jpg');
     background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center center;
     font-family: 'Inter', sans-serif;
 }
 
 #message-login {
     display: none;
     color: red;
-}
-
-@media screen and (max-width: 768px) {
-    body {
-        background-image: url('../resources/imgs/mobile/Login.jpg');
-    }
 }

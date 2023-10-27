@@ -1,4 +1,8 @@
-function Navbar() {
+function Navbar({ activeLink }) {
+  const isActive = (link) => {
+    return link === activeLink ? 'active' : ''
+  }
+
   return (
     <nav className="navbar navbar-expand-lg bg-light">
       <div className="container-fluid">
@@ -12,7 +16,10 @@ function Navbar() {
         <div className="collapse navbar-collapse" id="navbarSupportedContent">
           <ul className="navbar-nav mb-2 mb-lg-0 ms-auto" style={{ paddingTop: '10px' }}>
             <li className="nav-item">
-              <h5><a className="nav-link active" aria-current="page" href="#">Home</a></h5>
+              <h5><a className={`nav-link ${isActive('Home')}`} aria-current="page" href="index.html">Home</a></h5>
+            </li>
+            <li className="nav-item">
+              <h5><a className={`nav-link ${isActive('About')}`} href="about.html" >About</a></h5>
             </li>
             <li className="nav-item">
               <h5><a className="nav-link" href="signin.html">Login</a></h5>

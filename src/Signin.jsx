@@ -1,13 +1,15 @@
 function login() {
   const messsageTag = document.getElementById('message-login')
   const credential = document.getElementById('credential').value.trim();
-  const password = document.getElementById('password').value.trim();
+  const passwordTag = document.getElementById('password');
+  const password = passwordTag.value.trim()
 
   const users = JSON.parse(localStorage.getItem('users'))
 
   const result = users.find(user => (user.username === credential || user.email === credential) && user.password === password)
 
   if (!result) {
+    passwordTag.classList.add('form-control-error')
     messsageTag.style.display = 'block'
     return 
   }
@@ -15,6 +17,7 @@ function login() {
   localStorage.setItem('session', 'true')
 
   alert('Login Berhasil!')
+  window.location.href = "index.html"
 }
 
 function Signin() {
