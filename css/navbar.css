@@ -1,0 +1,15 @@
+.auth-button {
+    background-color: #10B981;
+    border-radius: 18px;
+    color: white;
+}
+
+.auth-button:hover {
+    color: #10B981;
+    background-color:#c6ebdf;
+}
+
+.nav-item-custom {
+    margin-left: 5px;
+    margin-right: 5px;
+}
