@@ -16,7 +16,7 @@
 
 @media screen and (max-width: 760px) {
     .auth-button {
-        background-color: white;
+        background-color: #f8f9fa;
         border-radius: 0;
         color: rgb(102, 98, 98);
     }
