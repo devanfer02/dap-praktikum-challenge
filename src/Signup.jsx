@@ -1,60 +1,3 @@
-function dataExist(list, email, username) {
-  return list.some(user => user.email === email) || list.some(user => user.username === username)
-}
-
-function register() {
-  const usernameInput = document.getElementById('username').value.trim()
-  const emailInput = document.getElementById('email').value.trim()
-  const passwordTag = document.getElementById('password')
-  const confirmTag = document.getElementById('confirm')
-  const messagePassTag = document.getElementById('password-message')
-  const passwordInput = passwordTag.value 
-  const confirmInput = confirmTag.value
-  
-  if (passwordInput !== confirmInput) {
-    passwordTag.classList.add('form-control-error')
-    confirmTag.classList.add('form-control-error')
-    messagePassTag.style.display = 'block'
-    messagePassTag.style.color = 'red'
-    return
-  }
-
-  if (usernameInput.length === 0 || emailInput === 0) {
-    return 
-  }
-
-  const users = JSON.parse(localStorage.getItem('users'))
-
-  if (dataExist(users, emailInput, usernameInput)) {
-    messagePassTag.style.display = 'block'
-    messagePassTag.style.color = 'red'
-    messagePassTag.value = 'Username Atau Email Sudah Digunakan'
-    return 
-  }
-
-  const user = {
-    username: usernameInput,
-    email: emailInput,
-    password: passwordInput
-  }
-
-  users.push(user)
-
-  localStorage.setItem('users', JSON.stringify(users))
-
-  alert("Pendaftaran Sukses! Kamu bisa mencoba untuk melakukan login")
-
-  window.location.href = 'signin.html'
-}
-
-function domRemove(tag, className) {
-  tag.classList.remove(className)
-}
-
-function domAdd(tag, attribute, value) {
-  tag.setAttribute(attribute, value)
-}
-
 function Signup() {
   return (
     <div className="container mt-5 mb-5">
@@ -83,14 +26,14 @@ function Signup() {
             />          
             <Input 
               label={"Kata Sandi"} 
-              placeholder={"Enter your password"} 
+              placeholder={"12345"} 
               id={'password'} 
               type={'password'}
               icon={true}
-              iconClass={'fa fa-eye-slash'}
-              iconId={'toggle-password'}
+              iconSrc={'resources/icons/icon_eye_closed.svg'}
+              iconClass={'icon'}
             />
-            <p className="mt-1 password-info">
+            <p className="password-info">
               Pakai kata sandi minimal 6 karakter dan bedakan dengan kata sandi akun media sosial atau website lain
             </p>    
             <Input 
@@ -99,8 +42,8 @@ function Signup() {
               id={'confirm'} 
               type={'password'}
               icon={true}
-              iconClass={'fa fa-eye-slash'}
-              iconId={'confirm-password'}
+              iconSrc={'resources/icons/icon_eye_closed.svg'}
+              iconClass={'icon'}
             />
             <p id="password-message">
               Kata Sandi Dengan Konfirmasi Sandi Tidak Sama
@@ -130,8 +73,6 @@ ReactDOM.render(
 
 initTogglePassword()
 initUsersData()
-initPasswordBehaviour()
-domRemove(document.getElementsByClassName('form-group')[2], 'form-group')
-domAdd(document.getElementById('password'), 'minlength', '6')
-domAdd(document.getElementById('confirm'), 'minlength', '6')
+initInputBehaviour()
+initSignUpPage()
 

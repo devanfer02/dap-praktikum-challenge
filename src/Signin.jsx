@@ -1,25 +1,3 @@
-function login() {
-  const messsageTag = document.getElementById('message-login')
-  const credential = document.getElementById('credential').value.trim();
-  const passwordTag = document.getElementById('password');
-  const password = passwordTag.value.trim()
-
-  const users = JSON.parse(localStorage.getItem('users'))
-
-  const result = users.find(user => (user.username === credential || user.email === credential) && user.password === password)
-
-  if (!result) {
-    passwordTag.classList.add('form-control-error')
-    messsageTag.style.display = 'block'
-    return 
-  }
-
-  localStorage.setItem('session', 'true')
-
-  alert('Login Berhasil!')
-  window.location.href = "index.html"
-}
-
 function Signin() {
   return (
     <div className="container mt-5 mb-5">
@@ -46,8 +24,8 @@ function Signin() {
               id={'password'} 
               type={'password'}
               icon={true}
-              iconClass={'fa fa-eye-slash'}
-              iconId={'toggle-password'}
+              iconSrc={'resources/icons/icon_eye_closed.svg'}
+              iconClass={'icon'}
             />
             <p id="message-login">
               Invalid Credential or Password
@@ -79,4 +57,4 @@ ReactDOM.render(
 
 initTogglePassword()
 initUsersData()
-initLoginBehaviour()
+initInputBehaviour()

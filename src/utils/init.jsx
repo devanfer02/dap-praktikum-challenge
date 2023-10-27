@@ -1,51 +1,26 @@
 function initTogglePassword() {
-  const inputPassword = document.getElementById('password')
-  const togglePassword = document.getElementById('toggle-password')
-  const inputConfirm = document.getElementById('confirm')
-  const toggleConfirm = document.getElementById('confirm-password')  
-
-  togglePassword.addEventListener('click', () => {
-    toggle(inputPassword, togglePassword)
-  })  
-  if (inputConfirm != null) {
-    toggleConfirm.addEventListener('click', () => {
-      toggle(inputConfirm, toggleConfirm)
+  const inputPassword = document.getElementsByClassName('pass-in')
+  const togglePassword = document.getElementsByClassName('icon')
+  
+  for (let i = 0; i < inputPassword.length; i++) {
+    togglePassword[i].addEventListener('click', () => {
+      toggle(inputPassword[i], togglePassword[i])
     })
   }
 };
 
-function initPasswordBehaviour() {
-  const passwordTag = document.getElementById('password')
-  const confirmTag = document.getElementById('confirm')
-  const messagePassTag = document.getElementById('password-message')
-  const computed = getComputedStyle(messagePassTag)
-
-  checkMessage(computed, passwordTag, confirmTag, messagePassTag)
-
-  passwordTag.addEventListener('click', () => {
-    checkMessage(computed, passwordTag, confirmTag, messagePassTag)
-  })
-
-  confirmTag.addEventListener('click', () => {
-    checkMessage(computed, passwordTag, confirmTag, messagePassTag)
-  })
+function initInputBehaviour() {
+  const inputTags = document.getElementsByClassName('form-control-self')
+  for (let i = 0; i < inputTags.length; i++) {
+    inputTags[i].addEventListener('click', () => {checkMessage(inputTags)})
+    checkMessage(inputTags)
+  }
 }
 
-function initLoginBehaviour() {
-  const inputTag = document.getElementById('credential')
-  const passwordTag = document.getElementById('password')
-  const messagePassTag = document.getElementById('message-login')
-  const computed = getComputedStyle(messagePassTag)
-
-  checkMessage(computed, inputTag, passwordTag, messagePassTag)
-
-  inputTag.addEventListener('click', () => {
-    checkMessage(computed, inputTag, passwordTag, messagePassTag)
-  })
-
-  passwordTag.addEventListener('click', () => {
-    checkMessage(computed, inputTag, passwordTag, messagePassTag)
-  })
+function initSignUpPage() {
+  document.getElementsByClassName('form-group')[2].style.marginBottom = '0'
+  domAdd(document.getElementById('password'), 'minlength', '6')
+  domAdd(document.getElementById('confirm'), 'minlength', '6')
 }
 
 function initUsersData() {
@@ -57,19 +32,25 @@ function initUsersData() {
 function toggle(inputTag, buttonTag) {
   if(inputTag.getAttribute('type') === 'password') {
     inputTag.setAttribute('type', 'text')
-    buttonTag.classList.remove('fa-eye-slash')
-    buttonTag.classList.add('fa-eye')
+    buttonTag.src = 'resources/icons/icon_eye_open.svg'
   } else {
     inputTag.setAttribute('type', 'password')
-    buttonTag.classList.remove('fa-eye')
-    buttonTag.classList.add('fa-eye-slash')
+    buttonTag.src = 'resources/icons/icon_eye_closed.svg'
   }
-};
+}
 
-function checkMessage(computed, passwordTag, confirmTag, messagePassTag) {
+function domAdd(tag, attribute, value) {
+  tag.setAttribute(attribute, value)
+}
+
+function checkMessage(tags) {
+  const messagePassTag = 
+    document.getElementById('password-message') ? document.getElementById('password-message') : document.getElementById('message-login');
+  const computed = getComputedStyle(messagePassTag)
   if (computed.getPropertyValue('display') === 'block') {        
-    passwordTag.classList.remove('form-control-error')
-    confirmTag.classList.remove('form-control-error')
+    for(let i = 0; i < tags.length; i++) {
+      tags[i].classList.remove('form-control-error')
+    }
     messagePassTag.style.display = 'none'
     messagePassTag.style.color = 'red'
     messagePassTag.value = 'Kata Sandi Dengan Konfirmasi Sandi Tidak Sama'

@@ -10,7 +10,7 @@ form i {
     font-size: 16px;
     width: 100%;
     outline: none;
-}
+} 
 
 .form-control-self:focus {
     border: 1px solid #10B981;
@@ -21,7 +21,17 @@ form i {
 }
 
 .form-group {
+    position: relative;
     margin-bottom: 1.5em;
+}
+
+.form-group .icon {
+    position: absolute;
+    top: 70%;
+    right: 10px;
+    transform: translateY(-50%);
+    width: 20px;
+    height: 20px;
 }
 
 #masuk {
@@ -103,9 +113,4 @@ form i {
 
 .entry {
     margin-top: 20px;
-}
-
-
-@media screen and (max-width: 768px) {
-
 }
