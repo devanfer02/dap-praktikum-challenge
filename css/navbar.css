@@ -13,3 +13,16 @@
     margin-left: 5px;
     margin-right: 5px;
 }
+
+@media screen and (max-width: 760px) {
+    .auth-button {
+        background-color: white;
+        border-radius: 0;
+        color: rgb(102, 98, 98);
+    }
+
+    .nav-link:hover {
+        color: #10B981;
+        background-color:#c6ebdf;        
+    }
+}

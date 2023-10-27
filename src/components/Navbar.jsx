@@ -16,10 +16,10 @@ function Navbar({ activeLink }) {
         <div className="collapse navbar-collapse" id="navbarSupportedContent">
           <ul className="navbar-nav mb-2 mb-lg-0 ms-auto" style={{ paddingTop: '10px' }}>
             <li className="nav-item nav-item-custom">
-              <h5><a className={`nav-link ${isActive('Home')}`} aria-current="page" href="index.html">Home</a></h5>
+              <h5><a className={`nav-link ${isActive('Home')}`} aria-current="page" href="index.html">&nbsp;Home&nbsp;</a></h5>
             </li>
             <li className="nav-item nav-item-custom">
-              <h5><a className={`nav-link ${isActive('About')}`} href="about.html">About</a></h5>
+              <h5><a className={`nav-link ${isActive('About')}`} href="about.html">&nbsp;About&nbsp;</a></h5>
             </li>
             <li className="nav-item nav-item-custom">
               <h5><a className="nav-link auth-button" href="signin.html">&nbsp;Login&nbsp;</a></h5>
