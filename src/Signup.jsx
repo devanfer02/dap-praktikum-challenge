@@ -47,6 +47,13 @@ function Signup() {
       return
     }
     
+    if (passwordInput.includes(' ')) {
+      messagePassTag.textContent = 'Password Field Contains Space Character'
+      messagePassTag.style.display = 'block'
+      passwordTag.classList.add('form-control-error')
+      return
+    }
+    
     if (passwordInput !== confirmInput) {
       passwordTag.classList.add('form-control-error')
       confirmTag.classList.add('form-control-error')
@@ -70,7 +77,8 @@ function Signup() {
     const user = {
       username: usernameInput,
       email: emailInput,
-      password: passwordInput
+      password: passwordInput,
+      profile_url: 'default'
     }
   
     users.push(user)

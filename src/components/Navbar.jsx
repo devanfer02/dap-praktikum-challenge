@@ -1,8 +1,11 @@
-function AuthButton() {
+function AuthButton({ activeLink }) {
   const isLoggedIn = localStorage.getItem('traveleen-loggedIn') === 'true';
   const logout = () => {
     localStorage.setItem('traveleen-loggedIn', null)
     localStorage.setItem('traveleen-loggedInUsername', '')
+  }
+  const isActive = (link) => {
+    return link === activeLink ? 'active' : ''
   }
 
   if (isLoggedIn) {
@@ -11,8 +14,8 @@ function AuthButton() {
         <li className="nav-item nav-item-custom">
           <h5>
             <a 
-              className="nav-link " 
-              href="signin.html">
+              className={`nav-link ${isActive(localStorage.getItem('traveleen-loggedInUsername'))}`}
+              href="user.profile.html">
               &nbsp;{localStorage.getItem('traveleen-loggedInUsername')}&nbsp;
             </a>
           </h5>
@@ -59,7 +62,7 @@ function Navbar({ activeLink }) {
             <li className="nav-item nav-item-custom">
               <h5><a className={`nav-link ${isActive('About')}`} href="about.html">&nbsp;About&nbsp;</a></h5>
             </li>
-            <AuthButton/>
+            <AuthButton activeLink={activeLink}/>
           </ul>
         </div>
       </div>

@@ -14,7 +14,7 @@
     margin-right: 5px;
 }
 
-@media screen and (max-width: 760px) {
+@media screen and (max-width: 768px) {
     .auth-button {
         background-color: #f8f9fa;
         border-radius: 0;
@@ -24,5 +24,9 @@
     .nav-link:hover {
         color: #10B981;
         background-color:#c6ebdf;        
+    }
+
+    .responsive-p {
+        margin-left: 9px;
     }
 }

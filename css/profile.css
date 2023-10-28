@@ -1,0 +1,72 @@
+body {
+    font-family: 'Inter', sans-serif;   
+}
+
+#profile-img {
+    border-radius: 200px;
+    width: 10em;
+    height: 10em;
+    border: 2px solid #10B981;
+    background-image: url('../resources/icons/jpeg/default_profile.jpg');
+    background-size: cover;
+}
+
+.profile {
+    background-image: url('../resources/imgs/Profile.jpg');
+    background-size:cover;
+    background-repeat: no-repeat;
+    background-position: center center;   
+    height: 40em;
+}
+
+.card-profile {
+    margin-left: 14em;
+    margin-right: 14em;   
+    padding-top: 4.5em;
+}
+
+.profile-picture {
+    position: relative;
+    user-select: none;
+}
+
+#image-upload {
+    width: 50%;
+    height: 50%;
+    display: none;
+}
+
+.edit-icon {
+    position: absolute;
+    top: 0;
+    right: 40%;
+    background: white;
+    border-radius: 50%;
+    padding: 5px;
+    cursor: pointer;
+}
+  
+.edit-icon i {
+    color: #007bff; 
+    font-size: 16px; 
+}
+
+@media screen and (max-width: 1000px) {
+    .edit-icon {
+        right: 10%;
+    }
+}
+  
+
+@media screen and (max-width: 768px) {
+    .card-profile {
+        margin: 0;
+        margin-left: 2px;
+        margin-right: 2px;
+    }
+
+    .edit-icon {
+        right: 30%;
+    }
+}
+
