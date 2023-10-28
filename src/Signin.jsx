@@ -24,7 +24,7 @@ function Signin() {
     localStorage.setItem('traveleen-loggedIn', 'true')
     localStorage.setItem('traveleen-loggedInUsername', result.username)
   
-    alert('Login Berhasil!')
+    alert('Anda Berhasil Login')
     window.location.href = "index.html"
   }
 
