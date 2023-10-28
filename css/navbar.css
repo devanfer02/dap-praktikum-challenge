@@ -9,6 +9,10 @@
     background-color:#c6ebdf;
 }
 
+.logo-title {
+    color: #10B981;
+}
+
 .nav-item-custom {
     margin-left: 5px;
     margin-right: 5px;
@@ -24,6 +28,10 @@
     .nav-link:hover {
         color: #10B981;
         background-color:#c6ebdf;        
+    }
+
+    .logo-title {
+        margin-top: 2px;
     }
 
     .responsive-p {

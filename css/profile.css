@@ -53,7 +53,7 @@ body {
 
 @media screen and (max-width: 1000px) {
     .edit-icon {
-        right: 10%;
+        right: 1dvh;
     }
 }
   
@@ -66,7 +66,7 @@ body {
     }
 
     .edit-icon {
-        right: 30%;
+        right: 26%;
     }
 }
 
