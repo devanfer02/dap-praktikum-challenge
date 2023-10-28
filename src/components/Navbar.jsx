@@ -45,7 +45,7 @@ function Navbar({ activeLink }) {
   }
 
   return (
-    <nav className="navbar navbar-expand-lg bg-light">
+    <nav className="navbar navbar-expand-lg" style={{ backgroundColor: '#fdfeff' }}>
       <div className="container-fluid">
         <div className="d-flex">
           <img src="resources/icons/traveleen_logo.svg" alt="logo" width="50" className="img-fluid icon-nav" draggable='false'/>

@@ -1,4 +1,20 @@
 function Home() {
+  const homeHref = () => {
+    if (localStorage.getItem('traveleen-loggedIn') === 'true') {
+      window.location.href = 'user.profile.html'
+    } else {
+      window.location.href = 'signin.html'
+    }
+  }
+
+  const buttonTextDecider = () => {
+    if (localStorage.getItem('traveleen-loggedIn') === 'true') {
+      return `Welcome, ${localStorage.getItem('traveleen-loggedInUsername')}`
+    } 
+
+    return 'Get Started Now'
+  }
+
   return (
     <div>
       <Navbar activeLink={'Home'}/>
@@ -8,7 +24,7 @@ function Home() {
           <hr/>  
           <p className="hero-content">At Traveleen, the journey begins the moment you arrive on our digital doorstep. We're more than just a website; we're your portal to the wonders of the world. Whether you're a seasoned traveler, an armchair explorer, or someone on the cusp of their first adventure, we're here to ignite your wanderlust, provide invaluable insights, and fuel your passion for exploring our remarkable planet. So, fasten your virtual seatbelt, get ready to roam, and let the adventure begin. Welcome to a world of boundless discovery and inspiration.
           </p>
-          <Button textContent={'Get Started'} classList={'btn btn-modified'}/>
+          <Button textContent={buttonTextDecider()} classList={'btn btn-modified'} onClick={homeHref}/>
         </div>
       </div>
       <Footer/>
