@@ -11,8 +11,12 @@ function UserProfile() {
     if (file) reader.readAsDataURL(file)
   }
 
+  function changeTitle() {
+    document.title = '@' + localStorage.getItem('traveleen-loggedInUsername') + ' - Profile'
+  }
+
   return (
-    <div>
+    <div onLoad={changeTitle}>
       <Navbar activeLink={localStorage.getItem('traveleen-loggedInUsername')}/>
       <div className="profile">
         <div className="justify-content-between text-center card-profile">
@@ -31,6 +35,10 @@ function UserProfile() {
             <div className="card-body">
               <div>
                 <h3>Travel History</h3>
+                <p>None</p>
+              </div>
+              <div>
+                <h3>Travel Reviews</h3>
                 <p>None</p>
               </div>
             </div>
