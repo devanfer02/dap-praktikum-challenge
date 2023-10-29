@@ -19,30 +19,27 @@ function Home() {
     const videoElement = document.getElementById('video-hero')
     const containerDiv = document.getElementById('home-hero')
     const imgElement = document.getElementById('icon-video')
-    
-    if (videoElement.getAttribute('autoplay') === 'true') {
+
+    if (videoElement.style.display == 'block') {
       containerDiv.style.backgroundImage = 'url(./resources/imgs/Home.jpg)'
       videoElement.style.display = 'none'
-      videoElement.setAttribute('autoplay', false)
       imgElement.src = 'resources/icons/jpeg/play24.png'
       videoElement.pause()
       videoElement.currentTime = 0
     } else {
+      videoElement.play()
       containerDiv.style.backgroundImage = 'none'
       videoElement.style.display = 'block'
-      videoElement.setAttribute('autoplay', true)
       imgElement.src = 'resources/icons/jpeg/stop1.png'
-      videoElement.play()
     }
-
   }
 
   return (
     <div>
       <Navbar activeLink={'Home'}/>
       <div className="p-5 jumbotron text-white hero-container d-flex" id="home-hero">
-        <video muted playsInline controls={false} id="video-hero" style={{ display: 'block' }}>
-          <source src="resources/videos/vidhero1.mp4" type="video/mp4"/>
+        <video loop muted playsInline controls={false} id="video-hero" style={{ display: 'none' }}>
+          <source src="resources/videos/vidhero.mp4" type="video/mp4"/>
         </video>
         <div className="home-desc">
           <h1 className="hero-title"><b>Traveleen</b></h1>
