@@ -40,8 +40,8 @@ function Home() {
   return (
     <div>
       <Navbar activeLink={'Home'}/>
-      <div className="p-5 jumbotron text-white hero-container" id="home-hero">
-        <video muted playsInline id="video-hero" style={{ display: 'block' }}>
+      <div className="p-5 jumbotron text-white hero-container d-flex" id="home-hero">
+        <video muted playsInline controls={false} id="video-hero" style={{ display: 'block' }}>
           <source src="resources/videos/vidhero1.mp4" type="video/mp4"/>
         </video>
         <div className="home-desc">

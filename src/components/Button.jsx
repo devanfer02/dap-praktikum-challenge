@@ -7,7 +7,11 @@ function Button({textContent, onClick, classList}) {
 function ButtonIcon({iconSrc, onClick, classList, style}) {
   return (
     <button type="button" className={classList} onClick={onClick} style={style}>
-      <img src={iconSrc} alt="icon" width={'20px'} height={'20px'} id="icon-video"/>
+      &nbsp;
+      &nbsp;
+      <img src={iconSrc} alt="icon" width={'18px'} height={'18px'} id="icon-video"/>
+      &nbsp;
+      &nbsp;
     </button>
   )
 }
