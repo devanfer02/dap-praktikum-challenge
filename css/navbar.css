@@ -4,6 +4,13 @@
     color: white;
 }
 
+.navbar {
+    top: 0;
+    position: absolute;
+    width: 100%;
+    z-index: 1;
+}
+
 .auth-button:hover {
     color: #10B981;
     background-color:#c6ebdf;
@@ -16,6 +23,7 @@
 .nav-item-custom {
     margin-left: 5px;
     margin-right: 5px;
+    background-color: #fdfeff;
 }
 
 @media screen and (max-width: 768px) {
