@@ -1,7 +1,8 @@
 function Signin() {
   function login() {
     const messsageTag = document.getElementById('message-login')
-    const credential = document.getElementById('credential').value.trim();
+    const credentialTag = document.getElementById('credential')
+    const credential = credentialTag.value.trim();
     const passwordTag = document.getElementById('password');
     const password = passwordTag.value.trim()
   
@@ -17,6 +18,7 @@ function Signin() {
   
     if (!result) {
       passwordTag.classList.add('form-control-error')
+      credentialTag.classList.add('form-control-error')
       messsageTag.style.display = 'block'
       return 
     }
