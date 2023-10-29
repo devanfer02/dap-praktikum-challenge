@@ -21,7 +21,7 @@ function Home() {
     const imgElement = document.getElementById('icon-video')
     
     if (videoElement.getAttribute('autoplay') === 'true') {
-      containerDiv.style.backgroundImage = 'url(../resources/imgs/Home.jpg)'
+      containerDiv.style.backgroundImage = 'url(resources/imgs/Home.jpg)'
       videoElement.style.display = 'none'
       videoElement.setAttribute('autoplay', false)
       imgElement.src = 'resources/icons/jpeg/play24.png'
