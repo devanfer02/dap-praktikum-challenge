@@ -8,7 +8,7 @@ body {
     background-repeat: no-repeat;
     background-position: center center;
     height: 36.2em;
-    margin-top: 68px;
+    margin-top: 74px;
 }
 
 .hero-title {
@@ -62,8 +62,8 @@ body {
 @media screen and (max-width: 1080px) {
     #video-hero {
         width: 100%;
-        margin: 0 auto;
-        height: 40em;
+        margin-top: 74px;
+        height: 36.2em;
         top: 0;
     }
 
