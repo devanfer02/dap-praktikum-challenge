@@ -52,18 +52,33 @@ body {
     font-size: 16px; 
 }
 
+.not-found {
+    text-align: center;
+    justify-content: center;
+    font-size: 60px;
+    padding-top: 4em;
+}
+
+.not-found-container {
+    vertical-align: middle;
+}
+
 @media screen and (max-width: 1000px) {
     .edit-icon {
         right: 1dvh;
     }
-}
-  
+}  
 
 @media screen and (max-width: 768px) {
     .card-profile {
         margin: 0;
         margin-left: 2px;
         margin-right: 2px;
+    }
+
+    .not-found {
+        padding-top: 7em;
+        font-size: 40px;
     }
 
     .edit-icon {

@@ -15,6 +15,20 @@ function UserProfile() {
     document.title = '@' + localStorage.getItem('traveleen-loggedInUsername') + ' - Profile'
   }
 
+  if (localStorage.getItem('traveleen-loggedIn') !== 'true') {
+    return (
+      <div>
+        <Navbar />
+          <div className="profile justfiy-align-center text-center text-white not-found-container">
+            <h1 className="not-found">
+              <b>404: Not Found</b>
+            </h1>
+          </div>
+        <Footer />
+      </div>
+    )
+  }
+
   return (
     <div onLoad={changeTitle}>
       <Navbar activeLink={localStorage.getItem('traveleen-loggedInUsername')}/>
