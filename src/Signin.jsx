@@ -12,7 +12,7 @@ function Signin() {
       return;
     }
   
-    const users = JSON.parse(localStorage.getItem('users'))
+    const users = JSON.parse(localStorage.getItem('traveleen-users'))
   
     const result = users.find(user => (user.username === credential || user.email === credential) && user.password === password)
   

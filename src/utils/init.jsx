@@ -3,8 +3,8 @@ function initSignUpPage() {
 }
 
 function initUsersData() {
-  if(localStorage.getItem('users') == null) {
-    localStorage.setItem('users', '[]');
+  if(localStorage.getItem('traveleen-users') == null) {
+    localStorage.setItem('traveleen-users', '[]');
   }
 }
 

@@ -63,7 +63,7 @@ function Signup() {
       return
     }
   
-    const users = JSON.parse(localStorage.getItem('users'))
+    const users = JSON.parse(localStorage.getItem('traveleen-users'))
   
     if (dataExist(users, emailInput, usernameInput)) {
       messagePassTag.style.display = 'block'
@@ -83,7 +83,7 @@ function Signup() {
   
     users.push(user)
   
-    localStorage.setItem('users', JSON.stringify(users))
+    localStorage.setItem('traveleen-users', JSON.stringify(users))
   
     alert("Pendaftaran Sukses! Kamu bisa mencoba untuk melakukan login")
   
