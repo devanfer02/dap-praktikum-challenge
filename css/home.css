@@ -45,6 +45,34 @@ body {
     pointer-events: none;
 }
 
+.dissapear-text {
+    text-align: left;
+    animation: disappear 4s linear forwards;
+}
+
+@keyframes disappear {
+    0% {
+        transform: translateX(0);
+        opacity: 1;
+    }
+    25% {
+        transform: translateX(-25%);
+        opacity: 0.75;
+    }
+    50% {
+        transform: translateX(-50%);
+        opacity: 0.5;
+    }
+    75% {
+        transform: translateX(-75%);
+        opacity: 0.25;
+    }
+    100% {
+        transform: translateX(-100%);
+        opacity: 0;
+    }
+}
+
 @media (min-aspect-ratio: 16/9) {
     #video-hero {
         width: 100%;
@@ -83,7 +111,7 @@ body {
 
     .hero-container {
         background-position: left;
-        height: 38em;
+        height: 42em;
     }
 
     .hero-content {
