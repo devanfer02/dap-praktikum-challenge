@@ -28,6 +28,10 @@
     background-color: #fdfeff;
 }
 
+.underline:hover {
+    color: #10B981;
+}
+
 @media screen and (max-width: 768px) {
     .auth-button {
         background-color: #f8f9fa;
